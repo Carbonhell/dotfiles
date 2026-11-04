@@ -1,9 +1,19 @@
 # Dotfiles
-This repository contains the dotfiles used to set up a MacBook Pro M3 with the preferences and dev tools suited for my own personal needs.
-The project is divided in the following files:
-- **.macos**, containing several macOS specific preferences, taken from https://github.com/mathiasbynens/dotfiles/blob/master/.macos and edited as needed;
-- **.zshrc**, zsh shell configuration file;
-- **aliases.zsh**, zsh file containing various aliases I find useful;
-- **boot.sh**, entry script to run when setting up a new machine;
-- **Brewfile**, list of tools to install through Brew (which is installed in boot.sh).
 
+This project contains common configurations I use on development machines.
+
+Nix and home-manager are used to keep common tools under version control.
+To install the environment, run the following command after cloning this repo:
+
+```sh
+nix run github:nix-community/home-manager/release-26.05 \
+  -- switch --flake .#desktop
+```
+  
+To apply home.nix changes, run the following command:
+
+```sh
+home-manager switch --flake .#desktop
+```
+
+The `mac` folder contains dotfiles specific for Apple machines.
